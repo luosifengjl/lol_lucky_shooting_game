@@ -1,0 +1,55 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"type": "cppbuild",
+			"label": "C/C++: g++.exe 生成活动文件",
+			"command": "F:/mingw64/bin/g++.exe",
+			"args": [
+				"-fdiagnostics-color=always",
+				"-g",
+				"main.cpp",
+				"-o",
+				"build/lolShoot.exe",
+				"-I",
+				"F:/cpp_include/SDL3/g++_dll_lib/include",
+				"-I",
+				"F:/cpp_include/SDL_branch/SDL_ttf/g++_dll_lib/include",
+				"-I",
+				"F:/cpp_include/SDL_branch/SDL_mixer/g++_dll_lib/include",
+				"-I",
+				"F:/cpp_include/SDL_branch/SDL_image/g++_dll_lib/include",
+				"-L",
+				"F:/cpp_include/SDL3/g++_dll_lib/lib",
+				"-L",
+				"F:/cpp_include/SDL_branch/SDL_image/g++_dll_lib/lib",
+				"-L",
+				"F:/cpp_include/SDL_branch/SDL_ttf/g++_dll_lib/lib",
+				"-L",
+				"F:/cpp_include/SDL_branch/SDL_mixer/g++_dll_lib/lib",
+				"-lSDL3",
+				"-lSDL3_image",
+				"-lSDL3_ttf",
+				"-lSDL3_mixer",
+				"-static-libgcc",
+				"-static-libstdc++"
+			],
+			"options": {
+				"shell": {
+					"executable": "powershell",
+					"args": [
+						"-Command"
+					]
+				}
+			},
+			"problemMatcher": [
+				"$gcc"
+			],
+			"group": {
+				"kind": "build",
+				"isDefault": true
+			},
+			"detail": "编译器: F:/mingw64/bin/g++.exe"
+		}
+	]
+}
