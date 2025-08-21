@@ -6,9 +6,6 @@
 
 #include <SDL3_mixer/SDL_mixer.h>
 
-extern Atlas atlas_explosion;
-
-extern MIX_Audio* sound_explosion;
 
 class Monster{
     public:
@@ -17,12 +14,12 @@ class Monster{
             animation_run.set_interval(0.1f);
             animation_explosion.set_loop(false);
             animation_explosion.set_interval(0.08f);
-            animation_explosion.add_frame(&atlas_explosion);
+            // animation_explosion.add_frame(&RendererManager::getInstance().atlas_explosion);
             animation_explosion.set_on_finished([&](){
                 is_valid = false; // 爆炸动画结束后，标记为无效
             });
             position.x = 40.0f + (rand() % 1200);
-            position.y = -50;
+            position.y = 50.0f;
         }
         ~Monster() = default;
 
@@ -31,7 +28,7 @@ class Monster{
         }
 
         void on_update(float delta){
-            if (!is_alive) {
+            if (is_alive) {
                 position.y +=speed_run * delta;
             }
             animation_current = (is_alive) ? &animation_run : &animation_explosion;
@@ -43,10 +40,9 @@ class Monster{
             animation_current->on_render(camera);
         }
 
-        void on_hurt()
+        void set_alive(bool status)
         {
-            is_alive = false;
-            MIX_PlayAudio(NULL,sound_explosion);
+            is_alive = status;
         }
 
         void make_invalid()
@@ -61,6 +57,14 @@ class Monster{
 
         bool can_remove() const{
             return !is_valid;
+        }
+
+        Animation& get_animation_run(){
+            return animation_run;
+        }
+
+        Animation& get_animation_explosion(){
+            return animation_explosion;
         }
     protected:
         float speed_run = 10.0f;

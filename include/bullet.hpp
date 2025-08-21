@@ -3,11 +3,12 @@
 #include "camera.hpp"
 #include "vector2.hpp"
 
+
 #include <SDL3/SDL.h>
 
 #define M_PI 3.14159265358979323846
 
-extern SDL_Texture* tex_bullet;
+
 
 class Bullet{
     public:
@@ -35,11 +36,6 @@ class Bullet{
             }
         }
 
-        void on_render(const Camera& camera) const{
-            const SDL_FRect rect_bullet = {position.x - 4,position.y - 5,8,4};
-            camera.render_texture(tex_bullet, nullptr, &rect_bullet, angle, nullptr);
-        }
-
         void on_hit()
         {
             is_valid = false;
@@ -50,6 +46,9 @@ class Bullet{
             return !is_valid;
         }
 
+        double get_angle() {
+            return angle;
+        }
 private:
         double angle = 0.0;
         Vector2 position;

@@ -37,7 +37,7 @@ class Animation{
         }
 
         void set_rotation(double angle){
-            angle = angle;
+           this-> angle = angle;
         }
 
         void set_center(const SDL_FPoint& center){
@@ -93,8 +93,8 @@ class Animation{
             const Frame& frame = frame_list[idx_frame];
             const Vector2& pos_camera = camera.get_position();
             SDL_FRect rect_dst;
-            rect_dst.x = position.x - frame.rect_src.w / 2;
-            rect_dst.y = position.y - frame.rect_src.h / 2;
+            rect_dst.x = position.x - frame.rect_src.w / 2 - pos_camera.x ;
+            rect_dst.y = position.y - frame.rect_src.h / 2  - pos_camera.y;
             rect_dst.w = frame.rect_src.w;
             rect_dst.h = frame.rect_src.h;
             camera.render_texture(frame.texture, &frame.rect_src, &rect_dst, angle, &center);

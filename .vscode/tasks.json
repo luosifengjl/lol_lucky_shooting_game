@@ -9,6 +9,7 @@
 				"-fdiagnostics-color=always",
 				"-g",
 				"main.cpp",
+				"src/gameManager.cpp",
 				"-o",
 				"build/lolShoot.exe",
 				"-I",
@@ -19,6 +20,8 @@
 				"F:/cpp_include/SDL_branch/SDL_mixer/g++_dll_lib/include",
 				"-I",
 				"F:/cpp_include/SDL_branch/SDL_image/g++_dll_lib/include",
+				"-I",
+				"F:\\cpp_project\\shooting_game_lol\\include",
 				"-L",
 				"F:/cpp_include/SDL3/g++_dll_lib/lib",
 				"-L",
@@ -32,7 +35,8 @@
 				"-lSDL3_ttf",
 				"-lSDL3_mixer",
 				"-static-libgcc",
-				"-static-libstdc++"
+				"-static-libstdc++",
+				"-mwindows"
 			],
 			"options": {
 				"shell": {

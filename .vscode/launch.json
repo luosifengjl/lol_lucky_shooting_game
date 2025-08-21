@@ -1,0 +1,20 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Debug SDL Game",
+            "type": "cppdbg",
+            "request": "launch",
+            "program": "${workspaceFolder}/build/lolShoot.exe", // 可执行文件路径
+            "args": [],
+            "stopAtEntry": false,
+            "cwd": "${workspaceFolder}",
+            "environment": [],
+            "externalConsole": true, // 用外部终端运行（避免SDL窗口被VSCode终端干扰）
+            "MIMode": "gdb",
+            "miDebuggerPath": "F:/mingw64/bin/gdb.exe", // 你的 MinGW gdb 路径
+            "preLaunchTask": "C/C++: g++.exe 生成活动文件", // 运行前先执行编译任务
+            "console": "internalConsole"
+        }
+    ]
+}

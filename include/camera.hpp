@@ -43,13 +43,14 @@ class Camera {
         timer_shake.set_wait_time(duration);
         timer_shake.restart();
     }
+    
     //rectangle 矩形
     void render_texture(SDL_Texture* texture,  const SDL_FRect* rect_src,
         const SDL_FRect* rect_dst,double angle,const SDL_FPoint* center)  const {
         SDL_FRect rect_dst_win = *rect_dst;
         rect_dst_win.x -= position.x;
         rect_dst_win.y -= position.y;
-        SDL_RenderTexture(renderer, texture, rect_src,&rect_dst_win);
+        SDL_RenderTextureRotated(renderer, texture, rect_src,&rect_dst_win,angle,center, SDL_FLIP_NONE);
     }
 
     private:
